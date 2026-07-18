@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Bistro Decision - Commande assistee par IA</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header">
+<div class="brand">
+<h1>Le Bistro Decision</h1>
+<p class="tagline">Menu complet (A_t) &rarr; filtrage IA &rarr; consideration set (T_t) &rarr; commande (x_t)</p>
+</div>
+<div class="service-mode" id="serviceMode">
+<button class="mode-btn active" data-mode="delivery">Livraison</button>
+<button class="mode-btn" data-mode="pickup">Retrait</button>
+<button class="mode-btn" data-mode="dinein">Sur place</button>
+</div>
+</header>
+
+<div id="consentBanner" class="consent-banner">
+<span>Nous enregistrons vos choix (menu, filtres, plats retenus, commande) a des fins de recherche. Consentez-vous ?</span>
+<button id="consentYes">J'accepte</button>
+<button id="consentNo">Je refuse</button>
+</div>
+
+<main class="layout">
+<section class="menu-panel">
+<div class="menu-toolbar">
+<h2>Menu complet <span id="menuCount" class="badge">0</span></h2>
+<button id="helpMeChoose" class="primary-btn">Aidez-moi a choisir</button>
+<button id="resetView" class="ghost-btn">Menu complet</button>
+</div>
+<div id="activeFilters" class="active-filters"></div>
+<div id="excludeLog" class="exclude-log"></div>
+<div id="menuGrid" class="menu-grid"></div>
+<div id="compareTray" class="compare-tray hidden">
+<button id="compareBtn" class="primary-btn">Comparer</button>
+<button id="clearCompare" class="ghost-btn">Effacer</button>
+</div>
+</section>
+
+<aside class="side-panel">
+<div class="chat-box">
+<h3>Agent IA</h3>
+<div id="chatLog" class="chat-log"></div>
+<div id="chatControls" class="chat-controls"></div>
+</div>
+<div class="cart-box">
+<h3>Panier <span id="cartCount" class="badge">0</span></h3>
+<div id="cartItems" class="cart-items"></div>
+<div class="cart-total">Total: <span id="cartTotal">0.00</span> $</div>
+<button id="checkoutBtn" class="primary-btn">Passer commande</button>
+</div>
+<div class="history-box">
+<h3>Historique (h_t-1)</h3>
+<div id="orderHistory" class="order-history"></div>
+</div>
+</aside>
+</main>
+
+<div id="compareModal" class="modal hidden">
+<div class="modal-content">
+<button class="modal-close" id="closeCompare">&times;</button>
+<h2>Comparaison cote a cote</h2>
+<div id="compareTable"></div>
+</div>
+</div>
+
+<div id="detailModal" class="modal hidden">
+<div class="modal-content">
+<button class="modal-close" id="closeDetail">&times;</button>
+<div id="detailBody"></div>
+</div>
+</div>
+
+<script src="js/logger.js"></script>
+<script src="js/data.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/recommend.js"></script>
+<script src="js/compare.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/agent.js"></script>
+</body>
+</html>
